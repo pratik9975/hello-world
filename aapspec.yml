@@ -1,0 +1,20 @@
+version: 1.0
+
+os: Linux
+
+files:
+  - source: webapp/target/webapp.war
+    destination: /opt/tomcat/webapps/
+    file_exists_behavior: OVERWRITE
+
+hooks:
+ 
+  ApplicationStop:
+    - location: stop.sh
+      timeout: 180
+      runas: root
+  ApplicationStart:
+    - location: start.sh
+      timeout: 180
+      runas: root
+
