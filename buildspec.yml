@@ -1,0 +1,17 @@
+version: 02
+
+phases:
+ pre-build: 
+   commands: 
+     - echo Nothing to do in pre-build phase..
+ build: 
+   commands: 
+     - echo Build started on 'date'
+     - mvn install 
+     
+ artifacts: 
+   files: 
+     - '**/webapp.war'
+     - 'appspec.yml'
+   discard-paths: yes
+   
